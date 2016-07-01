@@ -30,6 +30,10 @@ def message(msg):
 try: import argparse
 except: error('Python module "argparse" is not installed')
 
+# Make sure we have an input function even in old python:
+try: input = raw_input
+except NameError: pass
+
 parser = argparse.ArgumentParser(description = 'Update file ctimes')
 parser.add_argument('-v', '--version', action='version', version='%(prog)s {0}'.format(version))
 parser.add_argument('-s', '--silent', action='store_true', help='Do not provide output')
@@ -51,7 +55,7 @@ for line in args.file_list.readlines():
         else:
             if args.interactive == True:
                 while True:
-                    res = raw_input('update {}?: '.format(fname)).lower().strip()
+                    res = raw_input('update {0}?: '.format(fname)).lower().strip()
                     if res == '': res = 'n'
                     if res in 'ynca': break
                 if res == 'c': raise KeyboardInterrupt()
