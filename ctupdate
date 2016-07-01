@@ -55,7 +55,7 @@ for line in args.file_list.readlines():
         else:
             if args.interactive == True:
                 while True:
-                    res = raw_input('update {0}?: '.format(fname)).lower().strip()
+                    res = input('update {0}?: '.format(fname)).lower().strip()
                     if res == '': res = 'n'
                     if res in 'ynca': break
                 if res == 'c': raise KeyboardInterrupt()
