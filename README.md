@@ -32,6 +32,15 @@ The `file` supplied is read line at a time, and if the line is itself a valid fi
 The arguments `-l` and `-i` are mutually exclusive.
 
 ## Installation
-The script should be executable on any system that has python installed. On python versions <2.7 or <3.2, the [argparse](https://pypi.python.org/pypi/argparse) package is not included in the standard library and must be separately installed.
 
+Installation should be as simple as:
 
+~~~bash
+git clone https://github.com/alastair-droop/ctupdate.git
+cd ctupate
+python setup.py install
+~~~
+
+If you do not have admin privileges, you can install this locally using `python setup.py install --user`.
+
+After installation, you can verify that you have the correct version using `ctupdate -v`.
